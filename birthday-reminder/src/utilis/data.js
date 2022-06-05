@@ -1,8 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-const data = []
-
-
+const profile = []
 
 for (let i = 0; i < 5; i++) {
     const uuid = faker.datatype.uuid()
@@ -16,10 +14,9 @@ for (let i = 0; i < 5; i++) {
         image: image,
         age: age
     }
-    data.push(items)
+    profile.push(items)
 
 
 }
-console.log(data)
 
-export default data;
+export default profile;
