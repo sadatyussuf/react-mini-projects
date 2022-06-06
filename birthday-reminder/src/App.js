@@ -14,7 +14,7 @@ function App() {
 
         <Profile people={people} />
 
-        <button>clear all</button>
+        <button onClick={() => Setpeople([])}>clear all</button>
 
       </section>
     </main>
