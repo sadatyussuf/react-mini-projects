@@ -265,7 +265,7 @@ article h4 {
   }
 }
 
-/* article {
+article {
   position: absolute;
   top: 0;
   left: 0;
@@ -273,9 +273,9 @@ article h4 {
   height: 100%;
   opacity: 0;
   transition: var(--transition);
-} */
+} 
 
-/* article.activeSlide {
+article.activeSlide {
   opacity: 1;
   transform: translateX(0);
 }
@@ -286,4 +286,4 @@ article.lastSlide {
 
 article.nextSlide {
   transform: translateX(100%);
-} */
+}
