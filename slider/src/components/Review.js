@@ -17,7 +17,29 @@ const Review = () => {
 
 
 
+    const increamentOrDecreament = (choice) => {
+        if (choice === 'next') {
+            let data_length = people.length - 1
+            let changeValue = value + 1
 
+            if (changeValue > data_length) {
+                setValue(0)
+            }
+            else {
+                setValue(changeValue)
+            }
+        }
+        else {
+            let changeValue = value - 1
+
+            if (changeValue < 0) {
+                setValue(people.length - 1)
+            }
+            else {
+                setValue(changeValue)
+            }
+        }
+    }
 
     const getIndex = (value) => {
         let index = value - 1
