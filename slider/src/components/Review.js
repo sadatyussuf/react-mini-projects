@@ -117,6 +117,13 @@ const Review = () => {
                     )
                 })
             }
+
+            <button className="prev" onClick={prevHandler}>
+                <FiChevronLeft />
+            </button>
+            <button className="next" onClick={nextHandler}>
+                <FiChevronRight />
+            </button>
         </div>
     )
 }
