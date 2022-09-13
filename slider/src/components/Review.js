@@ -14,34 +14,49 @@ const Review = () => {
 
     const { image, name, quote, title } = people[value]
 
+    const increamentOrDecreament = (choice) => {
+        if (choice === 'next') {
+            let data_length = people.length - 1
+            let changeValue = value + 1
 
-    const prevHandler = () => {
-        let changeValue = value - 1
-
-        if (changeValue < 0) {
-            setValue(people.length - 1)
+            if (changeValue > data_length) {
+                setValue(0)
+            }
+            else {
+                setValue(changeValue)
+            }
         }
         else {
-            setValue(changeValue)
+            let changeValue = value - 1
+
+            if (changeValue < 0) {
+                setValue(people.length - 1)
+            }
+            else {
+                setValue(changeValue)
+            }
         }
     }
 
-    const nextHandler = () => {
-        let data_length = people.length - 1
-        let changeValue = value + 1
+    const prevHandler = () => {
+        increamentOrDecreament('prev')
+    }
 
-        if (changeValue > data_length) {
-            setValue(0)
-        }
-        else {
-            setValue(changeValue)
-        }
+    const nextHandler = () => {
+        increamentOrDecreament('next')
     }
 
 
     useEffect(() => {
+        const timer = setInterval(() => {
+            // setValue(value + 1)
+            increamentOrDecreament('next')
+        }, 6000)
 
+        // clearing interval
+        return () => clearInterval(timer)
     })
+
     return (
         <div className="section-center">
             <article className="activeSlide">
