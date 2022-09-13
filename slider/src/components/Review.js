@@ -55,6 +55,16 @@ const Review = () => {
     }
 
 
+    useEffect(() => {
+        const timer = setInterval(() => {
+            // setValue(value + 1)
+            increamentOrDecreament('next')
+        }, 6000)
+
+        // clearing interval
+        return () => clearInterval(timer)
+    })
+
 
 
 
