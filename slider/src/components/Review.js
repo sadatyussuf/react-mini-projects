@@ -76,6 +76,14 @@ const Review = () => {
         }
     }
 
+    const prevHandler = () => {
+        increamentOrDecreament('prev')
+    }
+
+    const nextHandler = () => {
+        increamentOrDecreament('next')
+    }
+
 
     useEffect(() => {
         const timer = setInterval(() => {
