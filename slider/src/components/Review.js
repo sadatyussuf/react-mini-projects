@@ -105,7 +105,6 @@ const Review = () => {
                     const { id, image, name, quote, title } = person
 
                     return (
-                        // <article key={id} className={`${getIndex(id) > value && 'nextSlide'} ${getIndex(id) < keepIndexInBound(value) && 'nextSlide'} ${getIndex(id) === value && 'activeSlide'}`
                         <article key={id} className={` ${checkSlideState(id, value)}`
                         }>
                             <img src={image} alt={name} className="person-img" />
