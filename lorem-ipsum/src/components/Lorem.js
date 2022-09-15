@@ -1,9 +1,13 @@
 
-function Lorem() {
+function Lorem({text}) {
 
 
     return (
-        <h1>hello</h1>
+        <article className="lorem-text">
+            {text.map((item, index) => {
+                return <p key={index}>{item}</p>
+            })}
+        </article>
     );
 }
 
