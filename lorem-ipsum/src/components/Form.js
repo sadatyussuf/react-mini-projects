@@ -1,8 +1,20 @@
 import React from 'react'
 
-const Form = () => {
+const Form = ({ value, setValue, generateText }) => {
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
     return (
-        <div>Form</div>
+        < form className="lorem-form" onClick={handleSubmit}>
+            <label htmlFor="amount">paragraphs:</label>
+
+            <input type="number" name='amount' id="amount" value={value} onChange={(e) => { setValue(e.target.value) }} />
+
+            <button className="btn" onClick={generateText}>generate</button>
+        </form>
     )
 }
 
