@@ -1,9 +1,12 @@
+import Entry from './components/Entry'
+import Output from './components/Output'
 
 function App() {
   return (
-    <div className="App">
-      hello
-    </div>
+    <section className="section-center">
+      <Entry />
+      <Output />
+    </section>
   );
 }
 
