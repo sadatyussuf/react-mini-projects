@@ -1,8 +1,33 @@
 import React from 'react'
 
-const Output = () => {
+import { FaEdit, FaTrash } from 'react-icons/fa';
+
+const Output = ({ todos, handleDelete, handleEdit, handleClearAll }) => {
     return (
-        <div>Output</div>
+        <>
+            {todos.length > 0 && <div className="grocery-container">
+                <div className="grocery-list">
+                    {
+                        todos.map((todo, index) => {
+                            return (
+                                <article key={index} className="grocery-item">
+                                    <p className="title">{todo}</p>
+                                    <div className='btn-container'>
+                                        <button type='button' className='edit-btn' onClick={handleEdit}>
+                                            <FaEdit />
+                                        </button>
+                                        <button type='button' className='delete-btn' onClick={handleDelete}>
+                                            <FaTrash />
+                                        </button>
+                                    </div>
+                                </article>
+                            )
+                        })
+                    }
+                </div>
+                <button className='clear-btn' onClick={handleClearAll}>clear items</button>
+            </div>}
+        </>
     )
 }
 
