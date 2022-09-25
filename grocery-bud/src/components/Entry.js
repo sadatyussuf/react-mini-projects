@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Entry = () => {
+const Entry = ({ inputText, setInputText, handleSubmit }) => {
     return (
         <>
             <form className="grocery-form">
@@ -8,9 +8,11 @@ const Entry = () => {
                 <div className="form-control">
                     <input type="text" className="grocery"
                         placeholder="e.g. eggs"
-                        value='' />
+                        value={inputText}
+                        onChange={(e) => setInputText(e.target.value)}
+                    />
 
-                    <button type="submit" className="submit-btn">submit</button>
+                    <button type="submit" className="submit-btn" onClick={handleSubmit}>submit</button>
                 </div>
             </form>
         </>
