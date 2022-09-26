@@ -8,10 +8,11 @@ const Output = ({ todos, handleDelete, handleEdit, handleClearAll }) => {
             {todos.length > 0 && <div className="grocery-container">
                 <div className="grocery-list">
                     {
-                        todos.map((todo, index) => {
+                        todos.map((todo) => {
+                            // const {}
                             return (
-                                <article key={index} className="grocery-item">
-                                    <p className="title">{todo}</p>
+                                <article key={todo.id} className="grocery-item">
+                                    <p className="title">{todo.text}</p>
                                     <div className='btn-container'>
                                         <button type='button' className='edit-btn' onClick={handleEdit}>
                                             <FaEdit />
