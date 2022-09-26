@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Entry = ({ inputText, setInputText, handleSubmit }) => {
+const Entry = ({ inputText, setInputText, handleSubmit, editBtn }) => {
     return (
         <>
             <form className="grocery-form">
@@ -12,7 +12,7 @@ const Entry = ({ inputText, setInputText, handleSubmit }) => {
                         onChange={(e) => setInputText(e.target.value)}
                     />
 
-                    <button type="submit" className="submit-btn" onClick={handleSubmit}>submit</button>
+                    <button type="submit" className="submit-btn" onClick={handleSubmit}>{!editBtn ? 'submit' : 'edit'}</button>
                 </div>
             </form>
         </>
