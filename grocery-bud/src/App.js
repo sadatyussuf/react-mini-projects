@@ -13,6 +13,10 @@ function App() {
   const [message, setMessage] = useState('')
 
 
+  const [editBtn, setEditBtn] = useState(false)
+  const [editTodo, setEditTodo] = useState({})
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const uuid = Date.now()
@@ -20,17 +24,27 @@ function App() {
     if (!inputText) {
       console.log('its empty')
     } else {
-      const todo = {
-        'id': uuid,
-        'text': inputText
+      if (!editBtn) {
+        const todo = {
+          'id': uuid,
+          'text': inputText
+        }
+        console.log(todo)
+        setTodos([...todos, todo])
+        setMessage('item added to the list')
       }
-      console.log(todo)
-      setTodos([...todos, todo])
-      setMessage('item added to the list')
+      if (editBtn) {
+        // the edit btn was clicked
+        for (let i in todos) {
+          if (todos[i].id === editTodo.id) {
+            todos[i].text = inputText
+            break
+          }
+        }
+        setEditBtn(false)
+      }
     }
-
     setInputText('')
-
   }
 
   const handleClearAll = () => {
@@ -40,9 +54,14 @@ function App() {
     setTodos([])
   }
 
-  const handleEdit = () => {
+  const handleEdit = (currentTodo) => {
     // 
     console.log('edit')
+    console.log(currentTodo)
+    const editText = currentTodo.text
+    setEditTodo(currentTodo)
+    setInputText(editText)
+    setEditBtn(true)
   }
   const handleDelete = (currentTodo) => {
     // 
@@ -61,7 +80,7 @@ function App() {
   return (
     <section className="section-center">
       <Alert message={message} />
-      <Entry inputText={inputText} setInputText={setInputText} handleSubmit={handleSubmit} />
+      <Entry inputText={inputText} setInputText={setInputText} handleSubmit={handleSubmit} editBtn={editBtn} />
 
       <Output todos={todos} handleDelete={handleDelete} handleEdit={handleEdit} handleClearAll={handleClearAll} />
     </section>
