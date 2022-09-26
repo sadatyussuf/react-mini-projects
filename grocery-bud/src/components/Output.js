@@ -14,10 +14,10 @@ const Output = ({ todos, handleDelete, handleEdit, handleClearAll }) => {
                                 <article key={todo.id} className="grocery-item">
                                     <p className="title">{todo.text}</p>
                                     <div className='btn-container'>
-                                        <button type='button' className='edit-btn' onClick={handleEdit}>
+                                        <button type='button' className='edit-btn' onClick={() => handleEdit(todo)}>
                                             <FaEdit />
                                         </button>
-                                        <button type='button' className='delete-btn' onClick={handleDelete}>
+                                        <button type='button' className='delete-btn' onClick={() => handleDelete(todo)}>
                                             <FaTrash />
                                         </button>
                                     </div>
