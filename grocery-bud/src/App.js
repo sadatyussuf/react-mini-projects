@@ -44,9 +44,12 @@ function App() {
     // 
     console.log('edit')
   }
-  const handleDelete = () => {
+  const handleDelete = (currentTodo) => {
     // 
     console.log('delete')
+    const remainingTodos = todos.filter((todo) => todo.id !== currentTodo.id)
+    setTodos(remainingTodos)
+
   }
 
 
