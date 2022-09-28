@@ -12,9 +12,11 @@ function App() {
   })
   const [message, setMessage] = useState('')
 
-
   const [editBtn, setEditBtn] = useState(false)
   const [editTodo, setEditTodo] = useState({})
+
+  const [alertCheck, setAlertCheck] = useState(false)
+  const [alertClass, setAlertClass] = useState('')
 
 
   const handleSubmit = (e) => {
@@ -22,7 +24,9 @@ function App() {
     const uuid = Date.now()
 
     if (!inputText) {
-      console.log('its empty')
+      setAlertClass('alert-danger')
+      setMessage('please enter a value')
+      setAlertCheck(true)
     } else {
       if (!editBtn) {
         const todo = {
@@ -31,7 +35,10 @@ function App() {
         }
         console.log(todo)
         setTodos([...todos, todo])
+
         setMessage('item added to the list')
+        // setAlertCheck(true)
+        // setAlertClass('alert-success')
       }
       if (editBtn) {
         // the edit btn was clicked
@@ -42,9 +49,17 @@ function App() {
           }
         }
         setEditBtn(false)
+        setMessage('value changed')
+
+        // setAlertCheck(true)
+        // setAlertClass('alert-success')
       }
+
+      setAlertCheck(true)
+      setAlertClass('alert-success')
     }
     setInputText('')
+
   }
 
   const handleClearAll = () => {
@@ -52,6 +67,10 @@ function App() {
     console.log('clear all')
     localStorage.removeItem('todos')
     setTodos([])
+    setMessage('empty list')
+    setAlertClass('alert-danger')
+    setAlertCheck(true)
+
   }
 
   const handleEdit = (currentTodo) => {
@@ -62,13 +81,17 @@ function App() {
     setEditTodo(currentTodo)
     setInputText(editText)
     setEditBtn(true)
+
   }
+
   const handleDelete = (currentTodo) => {
     // 
     console.log('delete')
     const remainingTodos = todos.filter((todo) => todo.id !== currentTodo.id)
     setTodos(remainingTodos)
-
+    setMessage('item removed')
+    setAlertCheck(true)
+    setAlertClass('alert-danger')
   }
 
 
@@ -77,9 +100,18 @@ function App() {
   }, [todos])
 
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setAlertCheck(false)
+    }, 3000)
+    return () => clearTimeout(timeout)
+  }, [alertCheck])
+
+
+
   return (
     <section className="section-center">
-      <Alert message={message} />
+      {alertCheck && <Alert message={message} alertClass={alertClass} />}
       <Entry inputText={inputText} setInputText={setInputText} handleSubmit={handleSubmit} editBtn={editBtn} />
 
       <Output todos={todos} handleDelete={handleDelete} handleEdit={handleEdit} handleClearAll={handleClearAll} />
