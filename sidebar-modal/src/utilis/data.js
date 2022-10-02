@@ -43,3 +43,31 @@ export const links = [
         "url": "/documents"
     },
 ]
+
+export const socials = [
+    {
+        "id": 1,
+        "icon": <FaFacebook />,
+        "url": "https://www.facebook.com"
+    },
+    {
+        "id": 2,
+        "icon": <FaTwitter />,
+        "url": "https://www.twitter.com"
+    },
+    {
+        "id": 3,
+        "icon": <FaLinkedin />,
+        "url": "https://www.linkedin.com"
+    },
+    {
+        "id": 4,
+        "icon": <FaBehance />,
+        "url": "https://www.behance.com"
+    },
+    {
+        "id": 5,
+        "icon": <FaSketch />,
+        "url": "https://www.sketch.com"
+    },
+]
