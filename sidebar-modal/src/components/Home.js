@@ -1,13 +1,13 @@
 import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import { useToggleBtns } from '../contexts/ToggleModalContext'
+import { useToggleBtns } from '../contexts/ToggleContext'
 const Home = () => {
-    const { modalState, openModal } = useToggleBtns()
+    const { openModal, openMenu } = useToggleBtns()
 
-    console.log(modalState)
+
     return (
         <main>
-            <button className="sidebar-toggle">
+            <button className="sidebar-toggle" onClick={() => openMenu()}>
                 <FaBars />
             </button>
 
