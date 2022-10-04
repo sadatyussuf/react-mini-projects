@@ -1,9 +1,20 @@
+import Home from './components/Home'
+import Modal from './components/Modal'
+import Sidebar from './components/Sidebar'
+
+import ButtonsContextProvider from './contexts/ToggleModalContext';
+
 
 function App() {
   return (
-    <div className="App">
-    hello
-    </div>
+
+    <>
+      <ButtonsContextProvider>
+        <Home />
+        <Modal />
+        <Sidebar />
+      </ButtonsContextProvider>
+    </>
   );
 }
 
