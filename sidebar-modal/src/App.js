@@ -2,7 +2,7 @@ import Home from './components/Home'
 import Modal from './components/Modal'
 import Sidebar from './components/Sidebar'
 
-import ButtonsContextProvider from './contexts/ToggleModalContext';
+import ButtonsContextProvider from './contexts/ToggleContext';
 
 
 function App() {
