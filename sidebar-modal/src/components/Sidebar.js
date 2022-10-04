@@ -3,14 +3,17 @@ import { FaTimes } from 'react-icons/fa'
 
 import { socials, links } from '../utilis/data'
 import logo from '../logo.svg'
+import { useToggleBtns } from '../contexts/ToggleContext'
+
 
 const Sidebar = () => {
+    const { menuState, closeMenu } = useToggleBtns()
     return (
-        <aside className="sidebar show-sidebar">
+        <aside className={`sidebar ${menuState && "show-sidebar"}`}>
             <div className="sidebar-header">
                 <img src={logo} alt="coding addict" className="logo" />
 
-                <button className="close-btn">
+                <button className="close-btn" onClick={() => closeMenu()}>
                     <FaTimes />
                 </button>
             </div>
