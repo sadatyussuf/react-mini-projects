@@ -1,12 +1,13 @@
 import Hero from './components/Hero'
 import Navbar from './components/Navbar';
+import ContextProvider from './context/MenuContext'
 
 function App() {
   return (
-    <>
-      <Hero />
+    <ContextProvider>
       <Navbar />
-    </>
+      <Hero />
+    </ContextProvider>
   );
 }
 
