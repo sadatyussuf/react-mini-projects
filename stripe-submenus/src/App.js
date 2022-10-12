@@ -1,5 +1,6 @@
 import Hero from './components/Hero'
 import Navbar from './components/Navbar';
+import Popup from './components/Popup'
 import ContextProvider from './context/MenuContext'
 
 function App() {
@@ -7,6 +8,8 @@ function App() {
     <ContextProvider>
       <Navbar />
       <Hero />
+      <Popup/>
+      
     </ContextProvider>
   );
 }
