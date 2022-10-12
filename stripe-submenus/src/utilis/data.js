@@ -2,7 +2,7 @@ import { FaCreditCard, FaBook, FaBriefcase } from 'react-icons/fa';
 
 export const links = [
     'products',
-    'developer',
+    'developers',
     'company'
 ]
 
