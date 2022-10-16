@@ -6,7 +6,7 @@ import { useContextProvider } from '../context/MenuContext'
 
 
 const Navbar = () => {
-    const { handleMouseEnter } = useContextProvider()
+    const { handleMouseEnter, refNavElement } = useContextProvider()
     // console.log(handleMouseEnter('products'))
 
     return (
@@ -22,7 +22,7 @@ const Navbar = () => {
                     {
                         links.map((link, index) => {
                             return (
-                                <li key={index} onClick={() => handleMouseEnter(link)}>
+                                <li ref={refNavElement} key={index} onClick={() => handleMouseEnter(link)}>
                                     <button className="link-btn">
                                         {link}
                                     </button>
