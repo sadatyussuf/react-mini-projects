@@ -2,8 +2,13 @@ import React from 'react'
 import { links } from '../utilis/data'
 import logo from '../images/logo.svg'
 import { FaBars } from 'react-icons/fa'
+import { useContextProvider } from '../context/MenuContext'
+
 
 const Navbar = () => {
+    const { handleMouseEnter } = useContextProvider()
+    // console.log(handleMouseEnter('products'))
+
     return (
         <nav className="nav">
             <div className="nav-center">
@@ -17,7 +22,7 @@ const Navbar = () => {
                     {
                         links.map((link, index) => {
                             return (
-                                <li key={index}>
+                                <li key={index} onClick={() => handleMouseEnter(link)}>
                                     <button className="link-btn">
                                         {link}
                                     </button>
