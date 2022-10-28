@@ -1,26 +1,12 @@
 import { useContextProvider } from '../context/MenuContext'
 
-import { useEffect, useRef, useState } from 'react'
+
 
 const Popup = () => {
-    const [colNum, setColNum] = useState(4)
 
-    const refPosition = useRef(null)
-
-    const { currentSubLink } = useContextProvider()
-
-    useEffect(() => {
-        const subLinkPosition = refPosition.current
-
-        // const lengthOfLink = currentSubLink[0]['links'].length
-        // setColNum(lengthOfLink)
-
-        if (currentSubLink.length !== 0) {
-
-        }
-    }, [currentSubLink])
-
-
+    const { currentSubLink, elementPosition } = useContextProvider()
+    const { center, columnNum } = elementPosition
+    console.log(elementPosition)
     if (currentSubLink.length === 0) {
         return (
             <p>lol</p>
@@ -29,12 +15,12 @@ const Popup = () => {
     const { page, links } = currentSubLink[0]
 
     return (
-        <aside className="submenu show" ref={refPosition}>
+        <aside className="submenu show" style={{ 'left': center }} >
             <section>
                 <h4>
                     {page}
                 </h4>
-                <div className={`submenu-center col-${colNum}`}>
+                <div className={`submenu-center col-${columnNum}`}>
                     {
                         links.map((link, index) => {
                             return (
