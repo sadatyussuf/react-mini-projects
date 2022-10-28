@@ -1,35 +1,46 @@
 import { sublinks } from '../utilis/data'
 
-import { createContext, useContext, useState, useRef, useEffect } from 'react'
+import { createContext, useContext, useState, useRef } from 'react'
 
 const context = createContext()
 
+// filterData function to check which sublink we are hovering on.
 const filterData = (cur_name) => {
     const result = sublinks.filter((sublink) => sublink.page === cur_name)
     return result
 }
 
 const ContextProvider = (props) => {
-    const refNavElement = useRef(null)
-    const [currentSubLink, setCurrentSubLink] = useState([])
 
-    const handleMouseEnter = (e, cur_name) => {
-        console.log(e.target)
+    const [currentLinkIndex, setCurrentLinkIndex] = useState('')
+    const [currentSubLink, setCurrentSubLink] = useState([])
+    const [elementPosition, setElementPosition] = useState({ 'center': 0, 'columnNum': 0 })
+
+    const refNavElement = useRef([])
+
+    const handleMouseEnter = (cur_name, index) => {
         const result = filterData(cur_name)
         setCurrentSubLink(result)
+        setCurrentLinkIndex(index)
+
+        calculate(index, result)
 
     }
-    // const handleMouseLeave = e => {
-    //     e.target.style.background = "maroon"
+    // * ill change it i the future 
+    function calculate(index, result) {
+        // const curRefElement = refNavElement.current[currentLinkIndex]
+        const curRefElement = refNavElement.current[index]
+        // const lengthOfLink = currentSubLink[0]['links'].length
+        const lengthOfLink = result[0]['links'].length
+        // console.log(lengthOfLink)
+        const { left, right } = curRefElement.getBoundingClientRect()
+        const center = (left + right) / 2
+        setElementPosition({ ...elementPosition, 'center': center, 'columnNum': lengthOfLink })
+    }
 
-    useEffect(() => {
-        console.log(refNavElement.current)
-        // console.log(refNavElement.current.getBoundingClientRect())
-        console.log('hi')
-    }, [currentSubLink])
 
     return (
-        <context.Provider value={{ handleMouseEnter, currentSubLink, refNavElement }}>
+        <context.Provider value={{ handleMouseEnter, currentSubLink, refNavElement, elementPosition }}>
             {props.children}
         </context.Provider>
     )
