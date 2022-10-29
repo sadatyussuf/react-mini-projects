@@ -4,7 +4,8 @@ import { useContextProvider } from '../context/MenuContext'
 
 const Popup = () => {
 
-    const { currentSubLink, elementPosition } = useContextProvider()
+    const { currentSubLink, elementPosition, isSubmenuOpen } = useContextProvider()
+
     const { center, columnNum } = elementPosition
     console.log(elementPosition)
     if (currentSubLink.length === 0) {
@@ -15,7 +16,7 @@ const Popup = () => {
     const { page, links } = currentSubLink[0]
 
     return (
-        <aside className="submenu show" style={{ 'left': center }} >
+        <aside className={`${isSubmenuOpen ? 'submenu show' : 'submenu'}`} style={{ 'left': center }} >
             <section>
                 <h4>
                     {page}
