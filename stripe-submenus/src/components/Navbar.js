@@ -6,14 +6,14 @@ import { useContextProvider } from '../context/MenuContext'
 
 
 const Navbar = () => {
-    const { handleMouseEnter, refNavElement } = useContextProvider()
+    const { handleMouseEnter, refNavElement, openSidebar, handleMouseExit } = useContextProvider()
 
     return (
         <nav className="nav">
             <div className="nav-center">
                 <div className="nav-header">
                     <img src={logo} alt="logo" className="nav-logo" />
-                    <button className="btn toggle-btn">
+                    <button className="btn toggle-btn" onClick={openSidebar}>
                         <FaBars />
                     </button>
                 </div>
@@ -22,7 +22,10 @@ const Navbar = () => {
                         links.map((link, index) => {
                             return (
 
-                                <li ref={link => refNavElement.current.push(link)} key={index} onClick={() => handleMouseEnter(link, index)}>
+                                <li ref={link => refNavElement.current.push(link)} key={index}
+                                    onMouseOver={() => handleMouseEnter(link, index)}
+                                    onMouseOut={() => handleMouseExit()}>
+
                                     <button className="link-btn">
                                         {link}
                                     </button>
