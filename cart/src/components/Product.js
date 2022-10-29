@@ -1,5 +1,7 @@
 import React from 'react'
 import { data } from '../utilis/data'
+import Footer from './Footer'
+
 const Product = () => {
     return (
         <section className="cart">
@@ -42,7 +44,7 @@ const Product = () => {
                     })
                 }
             </div>
-            {/* footer */}
+            <Footer />
         </section>
     )
 }
