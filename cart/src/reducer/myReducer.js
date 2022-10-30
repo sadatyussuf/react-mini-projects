@@ -2,6 +2,7 @@ import { data } from "../utilis/data";
 
 export const initialState = {
     'total': 2199.96,
+    'numOfItems': 4,
     'products': data
 }
 function sumTotal(products) {
@@ -15,7 +16,7 @@ function sumTotal(products) {
 
         total += (price * amount)
     }
-    return total
+    return [total.toFixed(2), 2]
 
 }
 
@@ -35,8 +36,7 @@ export function reducer(state, action) {
                     // console.log(total)
                     return product
                 })
-                const total = sumTotal(productItems).toFixed(2)
-
+                const [total] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
@@ -54,7 +54,7 @@ export function reducer(state, action) {
                     }
                     return product
                 }).filter(item => item.amount !== 0)
-                const total = sumTotal(productItems).toFixed(2)
+                const [total] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
@@ -66,7 +66,7 @@ export function reducer(state, action) {
         case 'REMOVE':
             {
                 const productItems = state.products.filter(product => product.id !== action.payload)
-                const total = sumTotal(productItems).toFixed(2)
+                const [total] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
