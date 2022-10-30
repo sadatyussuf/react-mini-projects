@@ -42,6 +42,16 @@ export function reducer(state, action) {
             }
 
 
+        case 'CLEAR_ALL':
+            {
+                return {
+                    ...state,
+                    total: 0,
+                    products: []
+                }
+            }
+
+
         default:
             return state;
     }
