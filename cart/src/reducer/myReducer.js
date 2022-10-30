@@ -7,6 +7,7 @@ export const initialState = {
 }
 function sumTotal(products) {
     let total = 0
+    let numOfItems = 0
 
     for (let product of products) {
         // console.log(product)
@@ -14,9 +15,11 @@ function sumTotal(products) {
         const price = product['price'];
         // console.log(price, amount)
 
+        numOfItems += amount
+
         total += (price * amount)
     }
-    return [total.toFixed(2), 2]
+    return [total.toFixed(2), numOfItems]
 
 }
 
@@ -36,10 +39,11 @@ export function reducer(state, action) {
                     // console.log(total)
                     return product
                 })
-                const [total] = sumTotal(productItems)
+                const [total, numOfItems] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
+                    numOfItems: numOfItems,
                     products: productItems
                 }
             }
@@ -54,10 +58,11 @@ export function reducer(state, action) {
                     }
                     return product
                 }).filter(item => item.amount !== 0)
-                const [total] = sumTotal(productItems)
+                const [total, numOfItems] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
+                    numOfItems: numOfItems,
                     products: productItems
                 }
             }
@@ -66,10 +71,11 @@ export function reducer(state, action) {
         case 'REMOVE':
             {
                 const productItems = state.products.filter(product => product.id !== action.payload)
-                const [total] = sumTotal(productItems)
+                const [total, numOfItems] = sumTotal(productItems)
                 return {
                     ...state,
                     total: total,
+                    numOfItems: numOfItems,
                     products: productItems
                 }
             }
@@ -78,6 +84,7 @@ export function reducer(state, action) {
                 return {
                     ...state,
                     total: 0,
+                    numOfItems: 0,
                     products: []
                 }
             }
