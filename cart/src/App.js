@@ -8,7 +8,7 @@ function App() {
 
   const { isLoading } = useMyContextProvider()
 
-  console.log(isLoading)
+
 
   if (isLoading) {
     return (
