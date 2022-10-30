@@ -1,6 +1,7 @@
 import React from 'react'
-
+import { useMyContextProvider } from '../context/MyContext'
 const Navbar = () => {
+    const { state } = useMyContextProvider()
     return (
         <nav>
             <div className="nav-center">
@@ -11,7 +12,7 @@ const Navbar = () => {
                     </svg>
                     <div className="amount-container">
                         <p className="total-amount">
-                            4
+                            {state.numOfItems}
                         </p>
                     </div>
                 </div>
