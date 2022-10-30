@@ -23,7 +23,9 @@ const Product = () => {
                                     <h4 className="item-price">
                                         ${price}
                                     </h4>
-                                    <button className="remove-btn">
+                                    <button className="remove-btn" onClick={() => dispatch({
+                                        'type': 'REMOVE', 'payload': id
+                                    })}>
                                         remove
                                     </button>
                                 </div>
