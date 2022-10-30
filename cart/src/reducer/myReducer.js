@@ -42,6 +42,15 @@ export function reducer(state, action) {
             }
 
 
+        case 'REMOVE':
+            {
+                const productItems = state.products.filter(product => product.id !== action.payload)
+                return {
+                    ...state,
+                    total: 0,
+                    products: productItems
+                }
+            }
         case 'CLEAR_ALL':
             {
                 return {
