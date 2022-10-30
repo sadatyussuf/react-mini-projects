@@ -1,7 +1,7 @@
 import { data } from "../utilis/data";
 
 export const initialState = {
-    'total': 0,
+    'total': 2199.96,
     'products': data
 }
 
@@ -9,25 +9,41 @@ export const initialState = {
 export function reducer(state, action) {
     switch (action.type) {
         case 'INCREMENT':
-            const productItem = state.products.map(product => {
-                if (product.id === action.payload) {
-                    return {
-                        ...product,
-                        amount: product.amount + 1
+            {
+                const productItems = state.products.map(product => {
+                    if (product.id === action.payload) {
+                        return {
+                            ...product,
+                            amount: product.amount + 1
+                        }
                     }
+                    return product
+                })
+                return {
+                    ...state,
+                    products: productItems
                 }
-                return product
-            })
-            return {
-                ...state,
-                products: productItem
             }
-        // return state.products
+        case 'DECREMENT':
+            {
+                const productItems = state.products.map(product => {
+                    if (product.id === action.payload) {
+                        return {
+                            ...product,
+                            amount: product.amount - 1
+                        }
+                    }
+                    return product
+                }).filter(item => item.amount !== 0)
+                return {
+                    ...state,
+                    products: productItems
+                }
+            }
 
 
         default:
             return state;
     }
-    // console.log('state', state)
-    // console.log('action', action)
+
 }
