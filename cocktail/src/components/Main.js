@@ -1,8 +1,14 @@
 import React from 'react'
+import Searchbar from './Searchbar'
+import CocktailDisplay from './CocktailDisplay'
 
 const Main = () => {
     return (
-        <div>Main</div>
+        <main>
+            <Searchbar />
+            <CocktailDisplay />
+
+        </main>
     )
 }
 
