@@ -37,7 +37,7 @@ const ContextProvider = ({ children }) => {
             } else {
                 setCocktails([])
             }
-            console.log(drinks)
+            // console.log(drinks)
             setLoading(false)
         }
         catch (error) {
