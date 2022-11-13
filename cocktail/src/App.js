@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import Main from "./components/Main"
+import Home from "./pages/Home"
 import About from "./pages/About"
 import Error from "./pages/Error";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Routes>
 
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<Error />} />
 
