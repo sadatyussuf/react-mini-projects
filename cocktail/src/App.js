@@ -1,13 +1,13 @@
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home"
 import About from "./pages/About"
+import SingleCocktail from "./pages/SingleCocktail"
 import Error from "./pages/Error";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-// import { useGlobalContext } from "./context/Context"
+
 
 function App() {
-  // const { loading } = useGlobalContext()
-  // console.log(loading)
+
   return (
     <Router>
       <Navbar />
@@ -15,6 +15,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="cocktail/:id" element={<SingleCocktail />} />
         <Route path="*" element={<Error />} />
 
       </Routes>
