@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+:root{
+  /* properties for colors */
+  --primary-violet: hsl(257, 40%, 49%);
+  --primary-soft-magenta : hsl(300, 69%, 71%);
+
+  /* typography for headings */
+  --headings-font-family: 'Poppins',
+  sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  --weight-400: 400;
+  --weight-600: 600;
+  
+  --body-font-family: 'Open Sans', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body{
+  font-family: var(--body-font-family);
+  font-weight: var(--weight-400);
+  background-color: var(--primary-violet);
+  background-image: url('./images/bg-desktop.svg');
 }
