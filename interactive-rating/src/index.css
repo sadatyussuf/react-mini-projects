@@ -3,7 +3,7 @@
   --primary-orange : hsl(25, 97%, 53%);
   --neutral-white : hsl(0, 0%, 100%);
   --neutral-light-grey: hsl(217, 12%, 63%);
-  --neutral-medium-grey: hsl(216, 12%, 54%);
+  --neutral-medium-grey: hsl(213, 19%, 23%);
   --neutral-dark-blue: hsl(213, 19%, 18%);
   --neutral-very-dark-blue: hsl(216, 12%, 8%);
 
@@ -25,7 +25,107 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh;
   background-color: var(--neutral-very-dark-blue);
+  font-family: var(--body-font-family);
+
+}
+
+
+.box-container{
+  margin: 0 2rem;
+  width: 18rem;
+  height: 19rem;
+  border-radius: 1rem;
+  background-color: var(--neutral-dark-blue);
+
+}
+
+.front-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1.7rem;
+  margin-right: 1.7rem;
+}
+
+.star{
+  margin-top: 1.7rem;
+  /* margin-left: 1.7rem; */
+}
+.star span{
+  background-color: hsl(213, 19%, 23%);
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  /* border: 1px var(--neutral-medium-grey) solid; */
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.star img{
+  height: 0.7rem;
+}
+
+.title{
+  color: var(--neutral-white);
+  font-weight: var(--weight-700);
+  margin-top: 0.7rem;
+  font-size: 0.7rem;
   
 }
-  
+
+.paragraph{
+  margin-top: 0.7rem;
+  color: var(--neutral-light-grey);
+  font-size: var(--paragraph-font-size);
+  font-weight: var(--weight-400);
+  text-align: left;
+}
+
+.numbers{
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  margin-top: 0.7rem;
+}
+
+.numbers li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: var(--neutral-medium-grey);
+  width: 2rem;
+  height: 2rem;
+  /* text-align: center; */
+  border-radius: 50%;
+  color: var(--neutral-light-grey);
+}
+
+/* .numbers li:hover{
+  background-color: var(--primary-orange);
+  color : var(--neutral-white)
+} */
+.numbers li:hover{
+  background-color: var(--neutral-light-grey);
+  color : var(--neutral-white)
+}
+
+.submit-btn{
+  margin-top: 1.4rem;
+  border: none;
+  width: 15rem;
+  height: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--neutral-white);
+  background-color: var(--primary-orange);
+
+}
