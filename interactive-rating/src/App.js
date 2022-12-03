@@ -1,7 +1,9 @@
-
+import Front from "./components/Front";
 function App() {
   return (
-    <h1>hello</h1>
+    <>
+      <Front />
+    </>
   );
 }
 
