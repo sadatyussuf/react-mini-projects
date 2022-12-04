@@ -1,8 +1,28 @@
 import Front from "./components/Front";
+// import Back from "./components/Back";
+import React from "react";
 function App() {
+  const [isSubmit, setIsSubmit] = React.useState(false);
+  const [curValue, setCurValue] = React.useState(0)
+
+  function handleSubmit() {
+    if (parseInt(curValue) === 0) return;
+    setIsSubmit(true)
+    console.log('onSubmit event has been fired', curValue);
+
+  }
+
+  if (isSubmit) {
+
+    return (<main className='box-container'>
+      {/* <Back /> */}
+      <h1>hi</h1>
+    </main>)
+
+  }
   return (
     <main className='box-container'>
-      <Front />
+      <Front handleSubmit={handleSubmit} setCurValue={setCurValue} />
     </main>
   );
 }
