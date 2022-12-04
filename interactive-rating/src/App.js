@@ -1,5 +1,5 @@
 import Front from "./components/Front";
-// import Back from "./components/Back";
+import Back from "./components/Back";
 import React from "react";
 function App() {
   const [isSubmit, setIsSubmit] = React.useState(false);
@@ -15,8 +15,7 @@ function App() {
   if (isSubmit) {
 
     return (<main className='box-container'>
-      {/* <Back /> */}
-      <h1>hi</h1>
+      <Back curValue={curValue} />
     </main>)
 
   }
