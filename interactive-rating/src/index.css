@@ -108,10 +108,6 @@ body {
   color: var(--neutral-light-grey);
 }
 
-/* .numbers li:hover{
-  background-color: var(--primary-orange);
-  color : var(--neutral-white)
-} */
 .numbers li:hover{
   background-color: var(--neutral-light-grey);
   color : var(--neutral-white)
@@ -127,5 +123,22 @@ body {
   text-transform: capitalize;
   color: var(--neutral-white);
   background-color: var(--primary-orange);
+  
+}
 
+@media (min-width: 1024px) {
+  .numbers li:hover{
+    background-color: var(--primary-orange);
+    color : var(--neutral-white);
+    cursor: pointer;
+  }
+  .numbers li:active{
+  background-color: var(--neutral-light-grey);
+    color: var(--neutral-white)
+  }
+  .submit-btn:hover{
+      background-color: var(--neutral-white);
+      color: var(--primary-orange);
+      cursor: pointer;
+  }
 }
