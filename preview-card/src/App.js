@@ -1,9 +1,7 @@
-
+import Cards from "./components/Cards";
 function App() {
   return (
-    <div className="App">
-      hello
-    </div>
+    <Cards />
   );
 }
 
