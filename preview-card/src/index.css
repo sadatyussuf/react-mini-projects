@@ -11,6 +11,10 @@
   --paragraph-font-size: 14px;
   --font-weights-500: 500;
   --font-weights-700: 700;
+  --font-family-fraunces: 'Fraunces',
+    serif;
+  --font-family-montserrat: 'Montserrat',
+    sans-serif;
 }
 
 
@@ -65,17 +69,185 @@ h6 {
   overflow-wrap: break-word;
 }
 
-#root,
-#__next {
+#root {
   isolation: isolate;
+  background-color: var(--primary-color-cream);
+  min-height: 100%;
+  font-family: var(--font-family-montserrat);
+  /* height: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.container{
+padding: 1rem;
+} 
+
+.desktopImage{
+  display: none;
+}
+
+.mobileImage{
+  border-top-right-radius:0.5rem ;
+  border-top-left-radius:0.5rem ;
+  /* ! maybe will change */
+  /* max-width: 100%; */
+}
+
+.card-info{
+  background-color: var(--neutral-color-white);
+  height: 23rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  /* ! maybe will change */
+  /* max-width: 30rem; */
+}
+
+.card-info-details{
+  padding: 1rem;
+}
+
+.card-info-details h3{
+  text-transform: uppercase;
+  font-weight: var(--font-weights-500);
+  color: var(--neutral-color-dark-grayish-blue);
+  letter-spacing: 0.2rem;
+  /* font-size: var(--paragraph-font-size); */
+  font-size: 0.7rem;
+  margin: 0.5rem 0;
+}
+
+.card-info-details h1{
+  font-family: var(--font-family-fraunces);
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  font-weight: var(--font-weights-700);
+  color: var(--neutral-color-very-dark-blue);
+}
+
+.card-info-details p{
+  font-size: var(--paragraph-font-size);
+  color: var(--neutral-color-dark-grayish-blue);
+  margin-bottom: 1rem;
+}
+
+.price{
+  display: flex;
+  flex-direction: row;
+  margin-bottom:1rem ;
+  /* background-color: aqua; */
+}
+
+.price .active-price{
+  font-family: var(--font-family-fraunces);
+  font-size: 2.2rem;
+  color: var(--primary-color-dark-cyan);
+}
+
+.price .previous-price{
+  margin: 1rem ;
+  text-decoration: line-through;
+  color: var(--neutral-color-dark-grayish-blue);
 }
 
 
+button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+
+  width: 100%;
+  height: 2.5rem;
+  color: var(--neutral-color-white);
+  border-style:none ;
+  border-radius: 0.5rem;
+  background-color: var(--primary-color-dark-cyan);
+}
 
 
+@media screen and (min-width: 500px) and (max-width: 1024px){
+ 
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 5rem; */
+      padding: 3rem;
+      /* padding: 3rem; */
+      /* border: 2px solid rgb(255, 0, 0); */
+    }
+  .card-container{
+    max-width: 27rem;
+    /* height: 200rem; */
+    /* border: 2px solid black; */
+  }
 
+    /* .card-info {
+    max-height:80rem ;
+    } */
+}
+@media  screen and (min-width: 1024px){
+  #root{
+    height: 100%;
+  }
+  
+  .mobileImage {
+    display: none;
+  }
+  
+  .desktopImage {
+    display: block;
+    border-bottom-left-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+  }
+  .container {
+    display: flex;
+    /* place-content: center; */
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .card-container{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* max-width: 38rem; */
+    max-width: 40rem;
+    /* height: 90%; */
+    /* border: 1px solid black; */
+    }
+    .card-info {
+      height: 30rem;
+      max-width: 20rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
 
+        .card-info-details {
+          /* padding: 1rem; */
+          display: flex;
+          flex-direction: column;
+          /* place-content: center; */
+          /* place-items: center; */
+          /* place-self: center; */
+          /* justify-content: center;
+          align-items: center; */
+          margin: 2rem;
+                }
+        
+        button:hover{
+          cursor: pointer;
+          background-color: var(--neutral-color-very-dark-blue);
 
+        }
 
-
-
+}
